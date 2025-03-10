@@ -9,8 +9,14 @@ import Link from "next/link";
 
 // Definindo o esquema de validação com Zod
 const loginSchema = z.object({
-  email: z.string().email("Formato de email inválido").nonempty("Email é obrigatório"),
-  password: z.string().min(6, "A senha deve ter no mínimo 6 caracteres").nonempty("Senha é obrigatória"),
+  email: z
+    .string()
+    .email("Formato de email inválido")
+    .nonempty("Email é obrigatório"),
+  password: z
+    .string()
+    .min(6, "A senha deve ter no mínimo 6 caracteres")
+    .nonempty("Senha é obrigatória"),
 });
 
 type LoginFormData = z.infer<typeof loginSchema>;
@@ -51,8 +57,13 @@ export default function Home() {
         <h1 className="text-3xl font-bold">Faça seu login</h1>
 
         {/* Formulário */}
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col p-16 gap-10 bg-zinc-900 rounded-xl">
-          <label htmlFor="" className="font-bold text-4xl text-center">Log in</label>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col p-16 gap-5 bg-zinc-900 rounded-xl"
+        >
+          <label htmlFor="" className="font-bold text-4xl text-center">
+            Log in
+          </label>
 
           {/* Campo de Email */}
           <div className="relative">
@@ -60,15 +71,17 @@ export default function Home() {
               <UserRound className="text-zinc-800" />
             </span>
             <input
-              className={`w-80 bg-white text-zinc-950 py-5 px-12 rounded-xl ${errors.email ? "border-red-500" : ""}`}
+              className={`w-80 bg-white text-zinc-950 py-5 px-12 rounded-xl ${
+                errors.email ? "border-red-500" : ""
+              }`}
               type="email"
               placeholder="Email"
               {...register("email")}
-            /> 
-            {errors.email && (
-              <span className="text-red-500 text-sm">{errors.email.message}</span>
-            )}
+            />
           </div>
+          {errors.email && (
+            <span className="text-red-500 text-sm">{errors.email.message}</span>
+          )}
 
           {/* Campo de Senha */}
           <div className="relative">
@@ -76,18 +89,25 @@ export default function Home() {
               <Lock className="text-zinc-800" />
             </span>
             <input
-              className={`w-80 bg-white text-zinc-950 py-5 px-12 rounded-xl ${errors.password ? "border-red-500" : ""}`}
+              className={`w-80 bg-white text-zinc-950 py-5 px-12 rounded-xl ${
+                errors.password ? "border-red-500" : ""
+              }`}
               placeholder="Senha"
               type={isPasswordVisible ? "text" : "password"}
               {...register("password")}
             />
+          </div>
             {errors.password && (
-              <span className="text-red-500 text-sm">{errors.password.message}</span>
+              <span className="text-red-500 text-sm">
+                {errors.password.message}
+              </span>
             )}
-            <button type="button" onClick={() => setIsPasswordVisible(!isPasswordVisible)}>
+            <button
+              type="button"
+              onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+            >
               <EyeIcon className="text-zinc-800 absolute top-5 right-3 cursor-pointer" />
             </button>
-          </div>
 
           <div className="flex items-center justify-center">
             <button
