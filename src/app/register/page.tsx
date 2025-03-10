@@ -48,7 +48,7 @@ export default function Register() {
       console.log("Conta criada com sucesso", result);
       alert("Conta criada com sucesso!");
       // Redireciona para a página de login ou onde preferir
-      window.location.href = "/login"; // Exemplo de redirecionamento
+      window.location.href = "/events"; // Exemplo de redirecionamento
     } else {
       // Mostra o erro caso não tenha dado certo
       console.log("Erro:", result.error);
