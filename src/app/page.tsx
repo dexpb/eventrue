@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { signIn } from "next-auth/react"; // Importando a função de login do NextAuth
+import { signIn } from "next-auth/react"; 
 import { EyeIcon, Lock, UserRound } from "lucide-react";
 import Link from "next/link";
 
-// Definindo o esquema de validação com Zod
+
 const loginSchema = z.object({
   email: z
     .string()
@@ -24,7 +24,7 @@ type LoginFormData = z.infer<typeof loginSchema>;
 export default function Home() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-  // Usando o React Hook Form com Zod
+
   const {
     register,
     handleSubmit,
@@ -33,11 +33,11 @@ export default function Home() {
     resolver: zodResolver(loginSchema),
   });
 
-  // Função chamada ao submeter o formulário
+
   const onSubmit = async (data: LoginFormData) => {
-    // Enviar as credenciais para o NextAuth.js para autenticação
+
     const response = await signIn("credentials", {
-      redirect: false, // Não redireciona automaticamente
+      redirect: false, 
       email: data.email,
       password: data.password,
     });
@@ -45,9 +45,9 @@ export default function Home() {
     if (response?.error) {
       alert("Erro ao fazer login: " + response.error);
     } else {
-      // Redirecionar após o login bem-sucedido
+ 
       alert("Login bem-sucedido!");
-      window.location.href = "/events"; // Alterar para o redirecionamento desejado
+      window.location.href = "/events"; 
     }
   };
 

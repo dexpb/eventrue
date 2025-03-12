@@ -3,7 +3,6 @@ import { FormEvent, ReactNode } from "react";
 
 interface ConfirmTripModalProps {
   closeConfirmTripModal: () => void;
- 
   createTrip: (event: FormEvent<HTMLFormElement>) => void;
   children?: ReactNode;
 }

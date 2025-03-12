@@ -12,10 +12,7 @@ export default function Home() {
   const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false);
   const [isGuestsModalOpen, setIsGuestsModalOpen] = useState(false);
   const [isConfirmTripModalOpen, setIsConfirmTripModalOpen] = useState(false);
-  const [emailsToInvite, setEmailsToInvite] = useState([
-    "diego@rocketseat.com.br",
-    "john@acme.com",
-  ]);
+  const [emailsToInvite, setEmailsToInvite] = useState([""]);
   const [destination, setDestination] = useState("");
 
   const [eventStartAndEndDates, setEventStartAndEndDates] = useState<

@@ -129,7 +129,7 @@ export default function TripDetailsPage() {
           <div className="space-y-5">
             <h1 className="font-bold text-xl">Important Links</h1>
             <h2 className="text-lg font-semibold">AirBnB Reservation</h2>
-            <p>linkjqnwdjqawneqiowne</p>
+            <p>inserir link</p>
             <button className="bg-zinc-800 rounded-lg px-6 py-2 gap-2 text-xl text-white w-full flex items-center justify-center">
               <Plus className="size-5" />
               Add Link
