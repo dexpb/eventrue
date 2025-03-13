@@ -6,6 +6,8 @@ import { z } from "zod";
 import { signIn } from "next-auth/react"; 
 import { EyeIcon, Lock, UserRound } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import EventrueLogo from "./eventrue-logo.png"
 
 
 const loginSchema = z.object({
@@ -54,6 +56,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <div className="flex justify-center flex-col items-center h-full gap-10">
+        <Image src={EventrueLogo} alt="Eventrue logo"/>
         <h1 className="text-3xl font-bold">Faça seu login</h1>
 
         {/* Formulário */}
